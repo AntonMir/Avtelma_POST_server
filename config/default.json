@@ -1,0 +1,21 @@
+{
+    "port": 7000,
+    "corsOptions": {
+        "origin": [
+            "http://avtelma.com",
+            "https://avtelma.com",
+            "https://smartinsurance.avtelma.com",
+            "http://avtelma.ru",
+            "https://avtelma.ru",
+            "https://smartinsurance.avtelma.ru",
+            "http://xn--80aafm4ag3b.xn--p1ai",
+            "https://xn--80aafm4ag3b.xn--p1ai",
+            "http://localhost:3000"
+        ],
+        "optionsSuccessStatus": 200
+    },
+    "senderEmailRU": "mailing@avtelma.ru",
+    "senderEmailEN": "mailing@avtelma.com",
+    "senderPass": "Qwerty12",
+    "receiverEmail": "smartinsurance@mail.ru"
+}
