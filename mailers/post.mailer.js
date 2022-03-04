@@ -2,18 +2,25 @@ const nodemailer = require('nodemailer')
 
 function sendEmail(sender, senderPass, receiver, userData) {
     // create reusable transporter object using the default SMTP transport
-    const { name, email, question } = userData
+    const { name, email, question, appName } = userData
 
     // base mail message
     const mailMessage = `
-        <p>You have a new question</p>
-        <h3>Contact Details</h3>
+        <hr>
+        <h4>Question sent from:</h4>
         <ul>  
-        <li>Name: ${name}</li>
-        <li>Email: ${email}</li>
+            <li>${appName}</li>
         </ul>
-        <h3>Question</h3>
-        <p>${question}</p>
+        <h4>Contact details:</h4>
+        <ul>  
+            <li>Name: ${name}</li>
+            <li>Email: ${email}</li>
+        </ul>
+        <h4>Question:</h4>
+        <ul>  
+            <li>${question}</li>
+        </ul>
+        <hr>
     `
     // open smtp channel
     const smtpTransport = nodemailer.createTransport({
