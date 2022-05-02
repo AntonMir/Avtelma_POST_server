@@ -25,5 +25,9 @@
     "senderEmailRU": "mailing@avtelma.ru",
     "senderEmailEN": "mailing@avtelma.com",
     "senderPass": "9gSwpZZz564",
-    "receiverEmail": "avtelma@mail.ru"
+    "receiverEmail": [
+        "a.chernousov@itelma.su", 
+        "avtelma@mail.ru", 
+        "info@avtelma.com"
+    ]
 }
