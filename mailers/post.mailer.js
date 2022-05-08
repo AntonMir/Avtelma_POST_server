@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer')
 
 function sendEmail(sender, senderPass, receiver, userData) {
     // create reusable transporter object using the default SMTP transport
-    const { name, email, question, appName } = userData
+    const { name, email, phone, company, question, appName } = userData
 
     // base mail message
     const mailMessage = `
@@ -15,6 +15,8 @@ function sendEmail(sender, senderPass, receiver, userData) {
         <ul>  
             <li>Name: ${name}</li>
             <li>Email: ${email}</li>
+            <li>Phone: ${phone}</li>
+            <li>Company name: ${company}</li>
         </ul>
         <h4>Question:</h4>
         <ul>  
