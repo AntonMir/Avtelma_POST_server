@@ -2,12 +2,28 @@ const nodemailer = require('nodemailer')
 
 function sendEmail(sender, senderPass, receiver, userData) {
     // create reusable transporter object using the default SMTP transport
-    const { name, email, phone, company, question, appName } = userData
-
+    let { name, email, phone, company, question, appName } = userData
     let mailMessage
 
-    if (!phone || !company) {
-        // base mail message
+    if (!question) {
+        question = 'not specified by user'
+    }
+
+    if (!name) {
+        name = 'not specified by user'
+    }
+
+    if (!phone) {
+        phone = 'not specified by user'
+    }
+
+    if (!company) {
+        company = 'not specified by user'
+    }
+
+
+    // base mail message
+    if (appName === "Avtelma") {
         mailMessage = `
         <hr>
         <h4>Question sent from:</h4>
@@ -18,6 +34,8 @@ function sendEmail(sender, senderPass, receiver, userData) {
         <ul>  
             <li>Name: ${name}</li>
             <li>Email: ${email}</li>
+            <li>Phone: ${phone}</li>
+            <li>Company name: ${company}</li>
         </ul>
         <h4>Question:</h4>
         <ul>  
@@ -26,7 +44,6 @@ function sendEmail(sender, senderPass, receiver, userData) {
         <hr>
     `
     } else {
-        // base mail message
         mailMessage = `
             <hr>
             <h4>Question sent from:</h4>
@@ -37,8 +54,6 @@ function sendEmail(sender, senderPass, receiver, userData) {
             <ul>  
                 <li>Name: ${name}</li>
                 <li>Email: ${email}</li>
-                <li>Phone: ${phone}</li>
-                <li>Company name: ${company}</li>
             </ul>
             <h4>Question:</h4>
             <ul>  
@@ -47,6 +62,7 @@ function sendEmail(sender, senderPass, receiver, userData) {
             <hr>
         `
     }
+
 
 
 
@@ -66,7 +82,7 @@ function sendEmail(sender, senderPass, receiver, userData) {
     let mailOptions = {
         from: sender, // sender address
         to: receiver, // list of receivers
-        subject: `Заявка от ${name}`, // Subject line
+        subject: `Заявка от ${name} `, // Subject line
         html: mailMessage, // html body
     }
 
