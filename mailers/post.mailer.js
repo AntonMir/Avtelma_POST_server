@@ -1,8 +1,10 @@
 const nodemailer = require('nodemailer')
 
 function sendEmail(sender, senderPass, receiver, userData) {
-    // create reusable transporter object using the default SMTP transport
+
+    // Получаем элементы отправленных данных
     let { name, email, phone, company, question, appName } = userData
+
     let mailMessage
 
     if (!question) {
@@ -21,6 +23,10 @@ function sendEmail(sender, senderPass, receiver, userData) {
         company = 'not specified by user'
     }
 
+    // Проверка на наличие спецсимволов HTML (пример: Roga&copyta "&copy")
+    if (company.includes('&')) {
+        company = company.replace(/&/g, '&amp;')
+    }
 
     // base mail message
     if (appName === "Avtelma") {
@@ -62,8 +68,6 @@ function sendEmail(sender, senderPass, receiver, userData) {
             <hr>
         `
     }
-
-
 
 
     // open smtp channel
