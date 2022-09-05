@@ -18,15 +18,21 @@
             "https://avtelmavds.space",
             "http://www.avtelmavds.space",
             "https://www.avtelmavds.space",
-            "http://localhost:3000"
+            "http://localhost:3000",
+            "http://avtel.am",
+            "http://www.avtel.am",
+            "https://avtel.am",
+            "https://www.avtel.am"
         ],
         "optionsSuccessStatus": 200
     },
     "senderEmailRU": "mailing@avtelma.ru",
     "senderEmailEN": "mailing@avtelma.com",
+    "senderEmailAM": "mailing@avtel.am",
     "senderPass": "9gSwpZZz564",
     "receiverEmail": [ 
-        "avtelma@mail.ru", 
-        "info@avtelma.com"
+        "avtelma@mail.ru",
+        "info@avtelma.com",
+        "info@avtel.am"
     ]
 }

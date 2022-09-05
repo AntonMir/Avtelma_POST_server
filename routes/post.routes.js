@@ -24,7 +24,10 @@ router.post('/', [check('email').isEmail()], async (req, res) => {
         if (!isEmptyObject(userData)) {
             // прокидываем отправителя и получателя в отправку Email
             sendEmail(
-                config.get(userData.lang === 'RU' ? 'senderEmailRU' : 'senderEmailEN'),
+                config.get(userData.lang === 'RU' 
+                    ? 'senderEmailRU' 
+                    : userData.lang === 'AM' 
+                        ? 'senderEmailAM' : 'senderEmailEN'),
                 config.get('senderPass'),
                 config.get('receiverEmail'),
                 userData
